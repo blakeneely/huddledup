@@ -57,7 +57,12 @@ $(document).ready(function(){
         });
         });
     };
-    
+
+    function hideKeyboard() {
+        document.activeElement.blur();
+        $("input").blur();
+    };
+
     function displayModal(){
         $('#test-modal').toggle('is-active');
     };
@@ -273,7 +278,7 @@ $(document).ready(function(){
     };
     
     getNews();
-    $(document).on('click', '#submit', getStats);
+    $(document).on('click', '#submit', getStats, hideKeyboard);
     $(document).on('click', '#contact-submit', saveContact);
     // $(document).on("click", "#submit", displayModal);
     $(document).on("click", ".stats-delete", displayModal);
@@ -282,8 +287,9 @@ $(document).ready(function(){
         if (event.keyCode === 13) {
             event.preventDefault();
             getStats();
+            hideKeyboard();
         }
         return false;
     });
   
-    });
+});
