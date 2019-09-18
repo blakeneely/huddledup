@@ -278,7 +278,7 @@ $(document).ready(function(){
     };
     
     getNews();
-    $(document).on('click', '#submit', getStats, hideKeyboard);
+    $(document).on('click', '#submit', getStats);
     $(document).on('click', '#contact-submit', saveContact);
     // $(document).on("click", "#submit", displayModal);
     $(document).on("click", ".stats-delete", displayModal);
